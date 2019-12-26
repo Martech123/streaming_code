@@ -1,0 +1,11 @@
+{
+    "value": [
+        "ref:c984eca8:/home/jlsemi/shiang/100-pkg/hw/chisel/resources",
+        "ref:aeda124c:/home/jlsemi/shiang/100-pkg/hw/out/chisel/compile/dest/classes",
+        "ref:e83ab50a:/home/jlsemi/shiang/100-pkg/hw/chisel/lib/chisel3.jar",
+        "ref:c071ae54:/home/jlsemi/shiang/100-pkg/hw/chisel/lib/shapeless.jar",
+        "qref:1a232bd5:/home/jlsemi/.cache/coursier/v1/https/repo1.maven.org/maven2/org/scala-lang/scala-library/2.12.8/scala-library-2.12.8.jar"
+    ],
+    "valueHash": 2129807071,
+    "inputsHash": -2048751486
+}

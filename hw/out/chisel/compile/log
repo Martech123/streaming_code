@@ -1,0 +1,21 @@
+[0m[[0m[0minfo[0m] [0m[0mCompiling 4 Scala sources to /home/jlsemi/shiang/100-pkg/hw/out/chisel/compile/dest/classes ...[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/jlsemi/shiang/100-pkg/hw/chisel/src/PktGen.scala:104:23: method apply in object LFSR16 is deprecated (since 3.2): Use chisel3.util.random.LFSR(16) for a 16-bit LFSR[0m
+[0m[[0m[33mwarn[0m] [0m[0m          pkt_len := (LFSR16() % ((64.U - 1518.U) + 1.U)) + 64.U[0m
+[0m[[0m[33mwarn[0m] [0m[0m                      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/jlsemi/shiang/100-pkg/hw/chisel/src/PktGen.scala:156:22: method apply in object LFSR16 is deprecated (since 3.2): Use chisel3.util.random.LFSR(16) for a 16-bit LFSR[0m
+[0m[[0m[33mwarn[0m] [0m[0m          tx_data := LFSR16()[0m
+[0m[[0m[33mwarn[0m] [0m[0m                     ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/jlsemi/shiang/100-pkg/hw/chisel/src/PktGen.scala:178:22: method apply in object LFSR16 is deprecated (since 3.2): Use chisel3.util.random.LFSR(16) for a 16-bit LFSR[0m
+[0m[[0m[33mwarn[0m] [0m[0m          tx_data := LFSR16()[0m
+[0m[[0m[33mwarn[0m] [0m[0m                     ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/jlsemi/shiang/100-pkg/hw/chisel/src/PktGen.scala:305:23: method apply in object LFSR16 is deprecated (since 3.2): Use chisel3.util.random.LFSR(16) for a 16-bit LFSR[0m
+[0m[[0m[33mwarn[0m] [0m[0m          pkt_len := (LFSR16() % ((64.U - 1518.U) + 1.U)) + 64.U[0m
+[0m[[0m[33mwarn[0m] [0m[0m                      ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/jlsemi/shiang/100-pkg/hw/chisel/src/PktGen.scala:358:22: method apply in object LFSR16 is deprecated (since 3.2): Use chisel3.util.random.LFSR(16) for a 16-bit LFSR[0m
+[0m[[0m[33mwarn[0m] [0m[0m          tx_data := LFSR16()[0m
+[0m[[0m[33mwarn[0m] [0m[0m                     ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/jlsemi/shiang/100-pkg/hw/chisel/src/PktGen.scala:381:22: method apply in object LFSR16 is deprecated (since 3.2): Use chisel3.util.random.LFSR(16) for a 16-bit LFSR[0m
+[0m[[0m[33mwarn[0m] [0m[0m          tx_data := LFSR16()[0m
+[0m[[0m[33mwarn[0m] [0m[0m                     ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m6 warnings found[0m
+[0m[[0m[0minfo[0m] [0m[0mDone compiling.[0m

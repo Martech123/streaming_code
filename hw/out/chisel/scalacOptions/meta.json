@@ -1,0 +1,11 @@
+{
+    "value": [
+        "-deprecation",
+        "-feature",
+        "-unchecked",
+        "-Xsource:2.11",
+        "-language:reflectiveCalls"
+    ],
+    "valueHash": 427563607,
+    "inputsHash": -1055004463
+}
