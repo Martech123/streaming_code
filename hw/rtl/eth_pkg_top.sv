@@ -17,40 +17,20 @@ module eth_pkg_top (
   input  [47:0] io_sa,
   input  [15:0] io_etype,
   output        io_tx_en,
-  output [7:0]  io_tx_data,
+  output [3:0]  io_tx_data,
   input         io_total_send_count_clr,
   output [47:0] io_total_send_count
 );
 
 
 
-//    PktGen8bit dut (
-//        .clock                  (clock                  ),
-//        .reset                  (reset                  ),
-//        .io_enable              (io_enable              ),
-//        .io_suspend             (io_suspend             ),
-//        .io_send_mode           (io_send_mode           ),
-//        .io_send_count          (io_send_count          ),
-//        .io_send_done           (io_send_done           ),
-//        .io_pkt_len_mode        (io_pkt_len_mode        ),
-//        .io_pkt_len_init        (io_pkt_len_init        ),
-//        .io_inter_frame_gap     (io_inter_frame_gap     ),
-//        .io_payload_mode        (io_payload_mode        ),
-//        .io_da                  (io_da                  ),
-//        .io_sa                  (io_sa                  ),
-//        .io_etype               (io_etype               ),
-//        .io_tx_en               (io_tx_en               ),
-//        .io_tx_data             (io_tx_data             ),
-//        .io_total_send_count_clr(io_total_send_count_clr),
-//        .io_total_send_count    (io_total_send_count    )
-//    );
 
   wire        io_mii_en;
   wire [3:0]  io_mii_data;
 
 
   assign io_tx_en = io_mii_en;
-  assign io_tx_data = {4'd0, io_mii_data};
+  assign io_tx_data = io_mii_data;
 
   wire clk_div8;
   BUFR #(
@@ -63,9 +43,8 @@ module eth_pkg_top (
       .I(clock) 
   );
 
-
-    PktGen4bit dut1 (
-        .clock                  (clk_div8               ),
+    PktGen8bit dut (
+        .clock                  (clock                  ),
         .reset                  (reset                  ),
         .io_enable              (io_enable              ),
         .io_suspend             (io_suspend             ),
@@ -79,11 +58,32 @@ module eth_pkg_top (
         .io_da                  (io_da                  ),
         .io_sa                  (io_sa                  ),
         .io_etype               (io_etype               ),
-        .io_tx_en               (io_mii_en              ),
-        .io_tx_data             (io_mii_data            ),
+        .io_tx_en               (io_mii_en               ),
+        .io_tx_data             (io_mii_data             ),
         .io_total_send_count_clr(io_total_send_count_clr),
         .io_total_send_count    (io_total_send_count    )
     );
+
+//    PktGen4bit dut1 (
+//        .clock                  (clk_div8               ),
+//        .reset                  (reset                  ),
+//        .io_enable              (io_enable              ),
+//        .io_suspend             (io_suspend             ),
+//        .io_send_mode           (io_send_mode           ),
+//        .io_send_count          (io_send_count          ),
+//        .io_send_done           (io_send_done           ),
+//        .io_pkt_len_mode        (io_pkt_len_mode        ),
+//        .io_pkt_len_init        (io_pkt_len_init        ),
+//        .io_inter_frame_gap     (io_inter_frame_gap     ),
+//        .io_payload_mode        (io_payload_mode        ),
+//        .io_da                  (io_da                  ),
+//        .io_sa                  (io_sa                  ),
+//        .io_etype               (io_etype               ),
+//        .io_tx_en               (io_mii_en              ),
+//        .io_tx_data             (io_mii_data            ),
+//        .io_total_send_count_clr(io_total_send_count_clr),
+//        .io_total_send_count    (io_total_send_count    )
+//    );
 
 
 
@@ -101,5 +101,27 @@ module eth_pkg_top (
     );
     
 
+rgmii rgmii_inst(
+.rgmii_125m       (clock),
+.rgmii_125m90     (), 
+.reset            (reset),
+
+
+.RGMII_RX_CLK     (),
+.RGMII_RX_DV      (),
+.RGMII_RX_D       (),
+.RGMII_TX_CLK     (rgmii_tx_clk),
+.RGMII_TX_EN      (rgmii_tx_en),
+.RGMII_TX_D       (rgmii_tx_data),
+
+
+.gmii_txd         (),
+.gmii_tx_en       (),
+.gmii_tx_pktlen   (),
+.gmii_rxd         (io_mii_data),
+.gmii_rx_dv       (io_mii_en),
+
+.crc_error        ()
+);
 endmodule
 
