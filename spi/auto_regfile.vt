@@ -1,0 +1,77 @@
+// auto_regfile
+module auto_regfile (
+  {% Analog Interface IO %}
+
+  //-----SRAM Interface IO-------
+  // Input Ports
+  input                   clk_i,
+  input                   rstb_i,
+  input                   we_i,
+  input                   valid_i,
+  input  [9:0]            addr_i,
+  input  [15:0]           data_i,
+  // Output Ports
+  output                  valid_o,
+  output                  error_o,
+  output [15:0]           data_o
+);
+
+  //----------Internal Variables-------------
+  reg [15:0] data_out;
+  reg        error_r;
+
+  reg        read_valid_1;
+  reg        read_valid_2;
+  reg        read_valid;
+
+  {% Analog Internal Variables %}
+
+  //---------- Register Instantiation-------------
+  {% Analog Registers Instantiation %}
+
+  always @(*) begin
+    //----------Each Cell Write Enable Logic-------------
+    // Default
+    error_r = 1'b1;
+    data_out = 16'h0;
+
+    {% Analog Write Enable Default Value %}
+
+    if (valid_i == 1'b1 && we_i == 1'b1) begin
+      case (addr_i)
+        {% Analog Write Enable %}
+      endcase
+    end
+
+    //----------Each Cell Read Logic-------------
+    // Default
+    case (addr_i)
+      {% Analog Read Enable %}
+    endcase
+  end
+
+  //----------Each Cell Write Logic-------------
+  always @(*) begin
+    {% Analog Write %}
+  end
+
+  //----------Each Cell Read Logic-------------
+  assign valid_o = read_valid;
+  assign error_o = error_r;
+
+  //----------Register File Output Logic-------------
+  assign data_o = data_out;
+
+  always @(posedge clk_i or negedge rstb_i) begin
+    if (rstb_i == 1'b0) begin
+      read_valid_1 <= 1'b0;
+      read_valid_2 <= 1'b0;
+      read_valid   <= 1'b0;
+    end else begin
+      read_valid_1 <= (we_i == 1'b1) ? 1'b0 : valid_i;
+      read_valid_2 <= read_valid_1;
+      read_valid   <= read_valid_2;
+    end
+  end
+
+endmodule

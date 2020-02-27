@@ -82,13 +82,13 @@ assign  crc_data_in = crc_en_in ? gmii_data_in : 'd0;
 
 
 wire crc_flag;
-crc_check crc_wr (
-    .resetn       (resetn     ),
-    .gmii_rx_clk  (gmii_rx_clk),
-    .gmii_rx_dv   (crc_en_in  ),
-    .gmii_rx_data (crc_data_in),
-    .crc_err      (crc_flag   )
-  );
+//crc_check crc_wr (
+//    .resetn       (resetn     ),
+//    .gmii_rx_clk  (gmii_rx_clk),
+//    .gmii_rx_dv   (crc_en_in  ),
+//    .gmii_rx_data (crc_data_in),
+//    .crc_err      (crc_flag   )
+//  );
 
 //---- eth data ---------------
 wire [8 :0] dout;

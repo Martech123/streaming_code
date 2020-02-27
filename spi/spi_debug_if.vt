@@ -1,19 +1,6 @@
 // Dummy Top for Auto Gen Regfile
 module spi_debug_if (
-  // Digital Registers IO
-  input [15:0] CHIP_VER_in,
-  input [15:0] error_cnt_in,
-  input [15:0] data_adc1_in,
-  output [15:0] ram_addr_adc4_out,
-  input [15:0] data_adc3_in,
-  output [15:0] ram_addr_adc2_out,
-  output [15:0] ram_addr_adc3_out,
-  output [15:0] ram_addr_adc1_out,
-  output        capture_start_out,
-  input        capture_ready_in,
-  output [1:0] sel_adc_out,
-  input [15:0] data_adc2_in,
-  input [15:0] data_adc4_in,
+  {% Digital IO %}
 
   //----------SPI Interface-------------
   input resetn,
@@ -37,19 +24,7 @@ module spi_debug_if (
 
   // Analog Register File
   auto_regfile rf(
-    .CHIP_VER_in_i (CHIP_VER_in),
-    .error_cnt_in_i (error_cnt_in),
-    .data_adc1_in_i (data_adc1_in),
-    .ram_addr_adc4_out_o (ram_addr_adc4_out),
-    .data_adc3_in_i (data_adc3_in),
-    .ram_addr_adc2_out_o (ram_addr_adc2_out),
-    .ram_addr_adc3_out_o (ram_addr_adc3_out),
-    .ram_addr_adc1_out_o (ram_addr_adc1_out),
-    .capture_start_out_o (capture_start_out),
-    .capture_ready_in_i (capture_ready_in),
-    .sel_adc_out_o (sel_adc_out),
-    .data_adc2_in_i (data_adc2_in),
-    .data_adc4_in_i (data_adc4_in),
+    {% Analog_Interface %}
     //-----SRAM Interface-----
     .clk_i   (rf_clk_i),
     .rstb_i  (resetn),
