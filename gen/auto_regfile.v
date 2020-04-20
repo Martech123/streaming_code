@@ -166,7 +166,7 @@ module auto_regfile (
   );
 
   // 
-  regmap_cell_wr #(.DATA_WIDTH(1), .RST_VAL(1'h0))
+  regmap_cell_wr #(.DATA_WIDTH(1), .RST_VAL(1'h1))
     io_send_mode(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -202,7 +202,7 @@ module auto_regfile (
   assign io_suspend_out_o    = io_suspend_data_out;
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h100))
     io_send_count_low(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -214,7 +214,7 @@ module auto_regfile (
   assign io_send_count_low_out_o    = io_send_count_low_data_out;
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h8800))
     io_etype(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -226,7 +226,7 @@ module auto_regfile (
   assign io_etype_out_o    = io_etype_data_out;
 
   // 
-  regmap_cell_wr #(.DATA_WIDTH(1), .RST_VAL(1'h0))
+  regmap_cell_wr #(.DATA_WIDTH(1), .RST_VAL(1'h1))
     io_pkt_len_mode(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -247,7 +247,7 @@ module auto_regfile (
   );
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'haabb))
     io_da_h(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -259,7 +259,7 @@ module auto_regfile (
   assign io_da_h_out_o    = io_da_h_data_out;
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'heeff))
     io_da_l(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -271,7 +271,7 @@ module auto_regfile (
   assign io_da_l_out_o    = io_da_l_data_out;
 
   // 
-  regmap_cell_wr #(.DATA_WIDTH(2), .RST_VAL(2'h0))
+  regmap_cell_wr #(.DATA_WIDTH(2), .RST_VAL(2'h2))
     io_payload_mode(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -283,7 +283,7 @@ module auto_regfile (
   assign io_payload_mode_out_o    = io_payload_mode_data_out;
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'hccdd))
     io_da_m(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -322,7 +322,7 @@ module auto_regfile (
   );
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h11))
     io_sa_h(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -334,7 +334,7 @@ module auto_regfile (
   assign io_sa_h_out_o    = io_sa_h_data_out;
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h2233))
     io_sa_m(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -346,7 +346,7 @@ module auto_regfile (
   assign io_sa_m_out_o    = io_sa_m_data_out;
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h4455))
     io_sa_l(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -370,7 +370,7 @@ module auto_regfile (
   assign reset_out_o    = reset_data_out;
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h12))
     io_inter_frame_gap(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -394,7 +394,7 @@ module auto_regfile (
   assign io_total_send_count_clr_out_o    = io_total_send_count_clr_data_out;
 
   // Addr[15:0]
-  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h0))
+  regmap_cell_wr #(.DATA_WIDTH(16), .RST_VAL(16'h64))
     io_pkt_len_init(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
@@ -406,7 +406,7 @@ module auto_regfile (
   assign io_pkt_len_init_out_o    = io_pkt_len_init_data_out;
 
   // 
-  regmap_cell_wr #(.DATA_WIDTH(1), .RST_VAL(1'h0))
+  regmap_cell_wr #(.DATA_WIDTH(1), .RST_VAL(1'h1))
     io_enable(
     .clk_i       (clk_i),
     .rstb_i      (rstb_i),
